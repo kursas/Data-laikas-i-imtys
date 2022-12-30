@@ -1,0 +1,27 @@
+#  Jei neteisingai įvedus duomenis ar įvykus klaidoms,
+#  programa mestų norimas klaidas lietuvių kalba
+# (panaudoti try/except)
+
+import datetime
+print_b = True
+curren_time = 0
+word = input("Iveskite norima zodi: ")
+while True:
+    try:
+        time = int(input("Iveskite kas kiek laiko norite spausdinti jusu zodi: "))
+        break
+    except ValueError:
+        print("Ivede ne sveikaji skaiciu. Bandykite dar karta!")
+
+start_time = datetime.datetime.now()
+while True:
+    now = datetime.datetime.now()
+    t_diff = now - start_time
+    if t_diff.seconds % time == 0:
+        current_time = t_diff.seconds
+        if print_b:
+            print(word, datetime.datetime.now().time())
+            print_b = False
+    #
+    if t_diff.seconds > current_time:
+        print_b = True
