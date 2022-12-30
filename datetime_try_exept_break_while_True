@@ -1,0 +1,19 @@
+# Parašyti programą, kuri atspausdintų norimą žodį, kas X sekundžių. Programa turi:
+# • Gauti sekundes iš vartotojo
+# • Spausdinti vartotojo įvesta žodį
+# • Įvedus netinkamą sekundžių formatą, programa turi paprašyti įvesti sekundes iš naujo
+
+import datetime
+import time
+
+while True:
+    try:
+        t = int(input('įvesk laiką sekudėmis: '))
+        break
+    except ValueError:
+        print('Netinkamas formatas, prašau pakartoti')
+
+z = input('Įvesk žodį: ')
+while True:
+    time.sleep(t)
+    print(z)
