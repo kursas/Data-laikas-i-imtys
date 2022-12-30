@@ -1,0 +1,47 @@
+#sukurti programa kuri is datu intervalo leistu ivesti metus,menesi,diena
+#programa printintu kokia tai savaites diena buvo/bus
+
+
+year = int(input("Įveskite savo gimimo metus iš intervalo (nuo 1901 iki 2099): "))
+month = int(input("Pasirinkite savo gimimo mėnesį: "))
+day = int(input("Pasirinkite savo gimimo dieną: "))
+dict_month = {1:[31,"Sausis"],2:[28,"Vasaris"],3:[31,"Kovas"],4:[30,"Balandis"],5:[31,"Gegužė"],6:[30,"Birželis"],7:[31,"Liepa"],8:[31,"Rugpjūtis"],9:[30,"Rugsėjis"],10:[31,"Spalis"],11:[30,"Lapkritis"],12:[31,"Gruodis"]}
+week = ["Pr","An","Tr","Kt","Pn","Št","Sk"]
+temp = 0
+for i in range(1,month):
+    temp += dict_month[i][0]
+total_days = (year - 1900)*365 + (year - 1900)//4  + temp
+if ((year - 1900)%4 == 0):
+    dict_month[2][0] = 29
+    if month in (1,2):
+        total_days -= 1
+number_of_days_of_pre_month = total_days % 7
+
+print("{:^28}".format(dict_month[month][1] + " " + str(year)))
+for i in week:
+    print("{:>4}".format(i),end="")
+print()
+count = 0
+for i in range(-number_of_days_of_pre_month,dict_month[month][0]):
+    if i+1 <= 0:
+        print("{:>4}".format(" "),end="")
+        count += 1
+        continue
+    print("{:>4}".format("*" + str(i+1) if i+1 == int(day) else str(i+1)),end="")
+    count += 1
+    if count == 7:
+        count = 0
+        print()
+
+#output
+Įveskite savo gimimo metus iš intervalo (nuo 1901 iki 2099): 2001
+Pasirinkite savo gimimo mėnesį: 01
+Pasirinkite savo gimimo dieną: 19
+        Sausis 2001         
+  Pr  An  Tr  Kt  Pn  Št  Sk
+   1   2   3   4   5   6   7
+   8   9  10  11  12  13  14
+  15  16  17  18 *19  20  21
+  22  23  24  25  26  27  28
+  29  30  31
+Process finished with exit code 0
