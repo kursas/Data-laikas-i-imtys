@@ -1,0 +1,10 @@
+#  Jei neteisingai įvedus duomenis ar įvykus klaidoms,
+#  programa mestų norimas klaidas lietuvių kalba 
+# (panaudoti try/except)
+
+while True:
+    try:
+        print(int(input("Įveskite skaičių: ")) > 0)
+        break
+    except ValueError:
+        print("Įvestas neteisingas skaičius (turi būti sveikasis)")
