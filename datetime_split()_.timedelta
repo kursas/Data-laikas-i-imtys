@@ -1,0 +1,15 @@
+# Parašyti programą, kuri:
+# • Leistų vartotojui įvesti pradžios datą
+# • Leistų vartotojui įvesti dienu skaiciu
+# • atspausdintu kokia bus data po ivestu dienu skaiciaus ir ivestos datos
+
+import datetime
+
+a = input('Data (2022-12-01): ')
+b = int(input('dienu skaicius: '))
+a = a.split('-')
+aa = datetime.date(int(a[0]), int(a[1]), int(a[2]))
+b = int(b)
+bb = datetime.timedelta(days=b)
+cc = aa + bb
+print(cc)
