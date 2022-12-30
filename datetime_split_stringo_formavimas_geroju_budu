@@ -1,0 +1,14 @@
+# Parašyti programą, kuri:
+# • Leistų vartotojui įvesti pradžios ir pabaigos datą
+# • Suskaičiuotų kiek praėjo dienu tarp datų
+import datetime
+
+a = input('iveskite pradzios data (2022-12-01): ')
+b = input('iveskite pabaigos data (2022-12-01): ')
+a = a.split('-')
+b = b.split('-')
+aa = datetime.date(int(a[0]), int(a[1]), int(a[2]))
+bb = datetime.date(int(b[0]), int(b[1]), int(b[2]))
+cc = aa - bb
+dd = str(cc)
+print(f"Tarp ivestos pradzios ir pabaigos datos, prejo dienu:{dd.split()[0]}")  # only days
